@@ -1,8 +1,9 @@
 import { ref, computed } from 'vue'
+import { userItemsData } from '@/data'
 import type { Item } from '@/types'
 
-export function useUserItems(initialItems: Item[]) {
-  const userItems = ref<Item[]>(initialItems)
+export function useUserItems() {
+  const userItems = ref<Item[]>(userItemsData)
   const selectedUserItems = ref<Item[]>([])
 
   const MAX_SELECTABLE_ITEMS = 6
@@ -34,7 +35,6 @@ export function useUserItems(initialItems: Item[]) {
   return {
     userItems,
     selectedUserItems,
-    isMaxUserItemsSelected,
     toggleUserItem,
     addUserItem,
     removeUserItem,

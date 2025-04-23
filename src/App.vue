@@ -1,12 +1,10 @@
 <script setup lang="ts">
 import { useUserItems } from '@/composables/useUserItems'
 import { useAvailableItems } from '@/composables/useAvailableItems'
-import { userItemsData, availableItemsData } from './data'
 
-const { userItems, selectedUserItems, toggleUserItem } = useUserItems(userItemsData)
+const { userItems, selectedUserItems, toggleUserItem } = useUserItems()
 
-const { availableItems, selectedAvailableItem, selectAvailableItem } =
-  useAvailableItems(availableItemsData)
+const { availableItems, selectedAvailableItem, selectAvailableItem } = useAvailableItems()
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const { availableItems, selectedAvailableItem, selectAvailableItem } =
 
       <div class="panel">
         <h3>Выбранная вещь на выбор</h3>
-        <p v-if="selectedAvailableItem">{{ selectedAvailableItem.name }}</p>
+        <p v-if="selectedAvailableItem" class="item">{{ selectedAvailableItem.name }}</p>
       </div>
     </div>
 
